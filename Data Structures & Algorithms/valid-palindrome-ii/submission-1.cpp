@@ -1,0 +1,26 @@
+class Solution {
+    private:
+    bool check(string &s,int l,int r){
+        while(l<r){
+            if(s[l]!=s[r]) return false;
+            l++;
+            r--;
+        }
+        return true;
+    }
+public:
+    bool validPalindrome(string s) {
+        int n=s.size();
+        int l=0;
+        int r=n-1;
+        while(l<r){
+            if(s[l]!=s[r]){
+               return check(s,l+1,r) || check(s,l,r-1);
+               //else return false;
+            }
+             l++;
+             r--;
+        }
+        return true;
+    }
+};
